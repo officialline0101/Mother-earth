@@ -332,6 +332,19 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            transform-origin: center center;
+        }
+
+        .week-button:hover {
+            background-color: #444444;
+            transform: scale(1.15);
+            /* ドーン！ってくらい拡大🔥 */
+        }
+
+        .week-button:active {
+            transform: scale(0.95);
+            /* クリックした瞬間にギュッと縮む💥 */
         }
 
         .month-button-container {
@@ -349,6 +362,17 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
+        }
+
+        .month-button:hover {
+            background-color: #444444;
+            transform: scale(1.15);
+            /* ドーン！ってくらい拡大🔥 */
+        }
+
+        .month-button:active {
+            transform: scale(0.95);
+            /* クリックした瞬間にギュッと縮む💥 */
         }
 
         .current-month {
@@ -1736,14 +1760,13 @@ liff.sendMessages([{
                     slotEnd.setMinutes(slotStart.getMinutes() + menuDuration + visitDuration + irradiationsDuration);
 
 
-    // 🔽 ここから追加（2カ月以降は✕）
-    const twoMonthsLater = new Date(now);
-    twoMonthsLater.setMonth(twoMonthsLater.getMonth() + 2);
-    if (slotStart > twoMonthsLater) {
-        cell.textContent = '✕';
-        cell.classList.add('unavailable');
-        continue;
-    }
+const oneMonthLater = new Date(now);
+oneMonthLater.setMonth(oneMonthLater.getMonth() + 1);
+if (slotStart > oneMonthLater) {
+    cell.textContent = '✕';
+    cell.classList.add('unavailable');
+    continue;
+}
 
                     // 日付を跨ぐ場合は✕
                     if (slotEnd.getDate() !== slotStart.getDate()) {
