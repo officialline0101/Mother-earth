@@ -17,7 +17,7 @@
             /* 画面中央に固定 */
             transform: translateY(-50%) translateX(13px);
             /* 中央配置と右ずらし */
-            background: #00b08b;
+            background: #ff9bcb;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -104,7 +104,7 @@
         }
 
         h1 {
-            background: linear-gradient(135deg, #00b08b, #006650);
+            background: linear-gradient(135deg, #ff9bcb, #d475a3);
             color: white;
             padding: 20px;
             border-radius: 0 15px 0px 45px;
@@ -123,13 +123,30 @@
             margin-bottom: 10px;
             padding: 3px;
             font-weight: 600;
-            background-color: #00b08b;
+            background-color: #ff9bcb;
             color: white;
             border-radius: 6px;
             font-size: 18px;
             text-align: center;
             /* 中央揃え */
             text-indent: 20px;
+            /* テキストを右に20pxずらす */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .labelmannaka {
+            display: block;
+            margin-bottom: 10px;
+            padding: 3px;
+            font-weight: 600;
+            background-color: #ff9bcb;
+            color: white;
+            border-radius: 6px;
+            font-size: 18px;
+            text-align: center;
+            /* 中央揃え */
+            text-indent: 0px;
             /* テキストを右に20pxずらす */
             position: relative;
             overflow: hidden;
@@ -142,7 +159,7 @@
             margin-bottom: 10px;
             padding: 3px;
             font-weight: 600;
-            background-color: #00b08b;
+            background-color: #ff9bcb;
             color: white;
             border-radius: 6px;
             font-size: 18px;
@@ -164,12 +181,12 @@
             align-items: center;
             justify-content: center;
             background: white;
-            color: #00b08b;
+            color: #ff9bcb;
             font-weight: bold;
             font-size: 0.9em;
             border-radius: 4px;
             padding: 2px 6px;
-            border: 2px solid #00b08b;
+            border: 2px solid #ff9bcb;
         }
 
         input[type="text"],
@@ -296,7 +313,7 @@
         }
 
         .calendar td.selected {
-            background-color: #00b08b;
+            background-color: #ff9bcb;
             color: #fff;
         }
 
@@ -516,7 +533,7 @@
 
         .highlight-background {
             cursor: pointer;
-            background-color: #00b08b;
+            background-color: #ff9bcb;
             padding: 10px;
             border-radius: 6px;
             font-size: 18px;
@@ -579,7 +596,7 @@
 
         input:focus,
         textarea:focus {
-            border-color: #00b08b;
+            border-color: #ff9bcb;
             outline: none;
             box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
         }
@@ -588,7 +605,7 @@
             padding: 12px;
             border: none;
             border-radius: 6px;
-            background-color: #00b08b;
+            background-color: #ff9bcb;
             color: #000000;
             font-size: 16px;
             cursor: pointer;
@@ -604,11 +621,11 @@
             width: 100%;
             padding: 15px;
             font-size: 18px;
-            background-color: #dc3545;
+            background-color: #ef86c9;
         }
 
         .submit-button:hover {
-            background-color: #c82333;
+            background-color: #ef86c9;
         }
 
         @media (max-width: 768px) {
@@ -657,7 +674,7 @@
             left: 50%;
             transform: translate(-50%, -10px);
             /* Y方向に上げる */
-            background-color: #00b08b;
+            background-color: #ff9bcb;
             color: #fff;
             padding: 3px 12px;
             /* ボックスのパディングを縮小 */
@@ -743,7 +760,7 @@
             font-size: 16px;
             font-weight: bold;
             padding: 12px 16px;
-            background-color: #00b08b;
+            background-color: #ff9bcb;
             color: #ffffff;
             border: 1px solid #c8e6c9;
             border-radius: 8px;
@@ -871,7 +888,7 @@
         }
 
         .datetime-input:focus {
-            border-color: #007BFF;
+            border-color: #ff9bcb;
             box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.2);
             /* タップ時の視覚的フィードバック */
             outline: none;
@@ -954,8 +971,8 @@
                 <span class="highlight-text">◆宙ことヒーリング◆</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this)" data-category="宙ことヒーリング" data-price="15000">まこも＆よもぎ蒸し<br>(単品4,000円・セット料金3,500円/30分)</button>
-                <button type="button" onclick="selectSymptom(this)" data-category="宙ことヒーリング" data-price="15000">回数券ご購入の方のみ<br>まこも＆よもぎ蒸し(30分)</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="宙ことヒーリング" data-price="15000">宙ことヒーリング(11,000円/60分)</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="宙ことヒーリング" data-price="15000">遠隔宙ことヒーリング(11,000円/60分)</button>
             </div>
             <div class="highlight-background">
                 <span class="highlight-text">オプション</span>
@@ -980,7 +997,7 @@
                 <span class="highlight-text">オプション</span>
             </div>
             <div class="irradiations">
-                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">セット価格　まこも＆よもぎ蒸し<br>(セット料金3,500円/30分)</button>
+                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">セット価格 まこも＆よもぎ蒸し<br>(セット料金3,500円/30分)</button>
             </div>
         </div>
 
@@ -1065,10 +1082,10 @@
             </div>
         </div>
 
-        <div class="label">メッセージ<br>（質問等お気軽にご記入ください）</div>
+        <div class="labelmannaka">メッセージ<br>（質問等お気軽にご記入ください）</div>
         <textarea id="message" rows="4" placeholder="メッセージを入力してください"></textarea>
 
-        <div class="label">ご予約内容</div>
+        <div class="labelmannaka">ご予約内容</div>
         <div id="displayInfo"></div> <!-- ここに選択された情報を表示します -->
 
         <button class="submit-button" onclick="submitForm()" div id="section-message">予約を行う</button>
@@ -1109,28 +1126,31 @@
 
         // 訪問回数ごとの時間設定 (例：初めて=20分、2回目以降=15分)
         let irradiationsTimes = {
-            '眉カット〈30分〉': 30,
-            '襟足〈30分〉': 30,
-            '背中(キャミソールライン)〈30分〉': 30,
-            '背中(腰まで)〈30分〉': 30,
-            'デコルテ〈30分〉': 30,
-            '腕〈30分〉': 30,
-            '保湿パック〈30分〉': 30,
-            'ベーシックマッサージ(パック付き)〈30分〉': 30,
-            'リラックスマッサージの(パック付き)〈30分〉': 30,
-            '美白パック〈30分〉': 30
+            'シンキングボウル(10分)': 10,
+            'セット価格まこも＆よもぎ蒸し(セット料金3,500円/30分)': 60
         };
 
         let selectedirradiationsTime = 0; // 訪問回数で選択された時間
 
         let menuTimes = {
-            '全身トリートメント(15000円/120分)': 30,
-            '上半身トリートメント(8000円/60分)': 60,
-            '下半身トリートメント(8000円/60分)': 420,
-            'デコルテフェイシャル(8000円/60分)': 30,
-            'aaaaaa': 60,
-            'aaaaa': 30,
-            'aaaaaa': 90
+            '全身トリートメント(15000円/120分)': 150,
+            '上半身トリートメント(8000円/60分)': 90,
+            '下半身トリートメント(8000円/60分)': 90,
+            'デコルテフェイシャル(8000円/60分)': 90,
+            '宙ことヒーリング(11,000円/60分)': 90,
+            '遠隔宙ことヒーリング(11,000円/60分)': 70,
+            '宙こと整体(12,000円/30分)': 60,
+            '上半身(7,000円/30分)': 60,
+            'バストアップ(3,500円/15分)': 30,
+            'フェイスアップ(3,500円/15分)': 30,
+            '腰/下半身(7,000円/30分)': 60,
+            'まこも＆よもぎ蒸し(単品4,000円・セット料金3,500円/30分)': 60,
+            '回数券ご購入の方のみまこも＆よもぎ蒸し(30分)': 60,
+            '勾玉セラピー(11,000円/60分)': 90,
+            '回数券未購入の方のみ全セットメニュー(40,000円/240分)': 270,
+            'バザルトストーン×宙こと整体(27,000円/150分)': 180,
+            '回数券購入済みの方のみバザルトストーン×宙こと整体(150分)': 180,
+            '回数券購入済みの方のみバザルト×宙こと整体×まこもよもぎ蒸し(180分)': 210
         };
 
 
@@ -1168,29 +1188,29 @@
 
         function updateDisplayInfo() {
             const name = document.getElementById('name').value;
-            const visitCountText = visitCount ? `<span style="color:#13ca5e;"><strong>【ご来店回数】</strong></span><br>・${visitCount}` : '・来店回数が未選択です';
-            const selectedMenuText = selectedMenu ? `<span style="color:#13ca5e;"><strong>【コース】</strong></span><br>・${selectedMenu}` : '・コースが未選択です';
+            const visitCountText = visitCount ? `<span style="color:#ff9bcb;"><strong>【ご来店回数】</strong></span><br>・${visitCount}` : '・来店回数が未選択です';
+            const selectedMenuText = selectedMenu ? `<span style="color:#ff9bcb;"><strong>【コース】</strong></span><br>・${selectedMenu}` : '・コースが未選択です';
 
             const selectedSymptomText = selectedSymptom.length > 0
-                ? `<span style="color:#13ca5e;"><strong>【メニュー】</strong></span><br>・${selectedSymptom.map(item => `《${item.category}》${item.name}`).join('<br>・')}`
+                ? `<span style="color:#ff9bcb;"><strong>【メニュー】</strong></span><br>・${selectedSymptom.map(item => `《${item.category}》${item.name}`).join('<br>・')}`
                 : '・メニューが未選択です';
 
             const irradiationsText = irradiationsCount
-                ? `<span style="color:#13ca5e;"><strong>【オプション】</strong></span><br>・${irradiationsCount.split(', ').join('<br>・')}`
+                ? `<span style="color:#ff9bcb;"><strong>【オプション】</strong></span><br>・${irradiationsCount.split(', ').join('<br>・')}`
                 : '・オプション無し';
 
             let totalMinutes = selectedMenuTime + selectedirradiationsTime + selectedVisitTime;
             let hours = Math.floor(totalMinutes / 60);
             let minutes = totalMinutes % 60;
-            let totalTimeText = `<span style="color:#13ca5e;"><strong>【所要時間】</strong></span><br>・${hours > 0 ? hours + '時間' : ''}${minutes}分`;
+            let totalTimeText = `<span style="color:#ff9bcb;"><strong>【所要時間】</strong></span><br>・${hours > 0 ? hours + '時間' : ''}${minutes}分`;
 
-            const totalAmountText = `<span style="color:#13ca5e;"><strong>【合計金額】</strong></span><br>・¥${menuPrice + optionsPrice}`;
-            const selectedDateText = selectedFullDate ? `<span style="color:#13ca5e;"><strong>【希望日時】</strong></span><br>・${selectedFullDate}` : '・日時が未選択です';
+            const totalAmountText = `<span style="color:#ff9bcb;"><strong>【合計金額】</strong></span><br>・¥${menuPrice + optionsPrice}`;
+            const selectedDateText = selectedFullDate ? `<span style="color:#ff9bcb;"><strong>【希望日時】</strong></span><br>・${selectedFullDate}` : '・日時が未選択です';
 
             // 修正ボタン付きのHTMLを作成
             document.getElementById('displayInfo').innerHTML = `
         <div class="info-row">
-            <p><span style="color:#13ca5e;"><strong>【お名前】</strong></span><br>・${name}</p>
+            <p><span style="color:#ff9bcb;"><strong>【お名前】</strong></span><br>・${name}</p>
             <button class="edit-button" onclick="scrollToElement('name')">修正する</button>
         </div>
         <hr>
@@ -1210,16 +1230,8 @@
         </div>
         <hr>
         <div class="info-row">
-            <p>${totalTimeText}</p>
-        </div>
-        <hr>
-        <div class="info-row">
             <p>${selectedDateText}</p>
             <button class="edit-button" onclick="scrollToElement('calendar1')">修正する</button>
-        </div>
-        <hr>
-        <div class="info-row">
-            <p>${totalAmountText}</p>
         </div>
         <hr>
     `;
@@ -1581,26 +1593,24 @@
                 return;
             }
 
-            // selectedSymptomを文字列に整形
-            const selectedSymptomText = formData.selectedSymptom
-                ? formData.selectedSymptom.map(item => `${item.name}`).join(',')
-                : 'メニュー未選択';
+// selectedSymptomを文字列に整形
+const selectedSymptomText = formData.selectedSymptom
+    ? formData.selectedSymptom.map(item => `${item.name}`).join('、')
+    : 'メニュー未選択';
 
-            // irradiationsCountの整形（nullチェック）
-            const irradiationsText = formData.irradiationsCount || 'なし';
+// irradiationsCountの整形（nullチェック）
+const irradiationsText = formData.irradiationsCount ? `、${formData.irradiationsCount}` : '';
 
-            liff.sendMessages([{
-                type: 'text',
-                text: `【予約フォーム】\nお名前：${formData.name}\n電話番号：${formData.phone}\nご来店回数：${formData.visitCount}\nコース：${formData.selectedMenu}\nメニュー：${selectedSymptomText},${irradiationsText}\n希望日時：\n${formData.dates[0]}\nメッセージ：${formData.message}`
-            }]).then(() => {
-                /* メッセージ送信成功時の処理 */
-                alert('当日キャンセルは無いようにお願いいたします。');
-                /* LIFFウィンドウを閉じる */
-                liff.closeWindow();
-            }).catch((err) => {
-                /* メッセージ送信失敗時の処理 */
-                console.error('メッセージの送信に失敗しました', err);
-            });
+// メッセージ送信
+liff.sendMessages([{
+    type: 'text',
+    text: `【予約フォーム】\nお名前：${formData.name}\n電話番号：${formData.phone}\nご来店回数：${formData.visitCount}\nコース：${formData.selectedMenu}\nメニュー：${selectedSymptomText}${irradiationsText}\n希望日時：\n${formData.dates[0]}\nメッセージ：${formData.message}`
+}]).then(() => {
+    alert('当日キャンセルは無いようにお願いいたします。');
+    liff.closeWindow();
+}).catch((err) => {
+    console.error('メッセージの送信に失敗しました', err);
+});
         }
 
         function formatDate(dateStr) {
