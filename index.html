@@ -1760,12 +1760,15 @@ liff.sendMessages([{
                     slotEnd.setMinutes(slotStart.getMinutes() + menuDuration + visitDuration + irradiationsDuration);
 
 
-const oneMonthLater = new Date(now);
-oneMonthLater.setMonth(oneMonthLater.getMonth() + 1);
-if (slotStart > oneMonthLater) {
-    cell.textContent = '✕';
-    cell.classList.add('unavailable');
-    continue;
+// 現在の日付（now）を元に2か月後の日付を作成
+const twoMonthsLater = new Date(now);
+twoMonthsLater.setMonth(twoMonthsLater.getMonth() + 2);
+
+// 予約スロット（slotStart）が2か月後より後であれば「✕」を表示して選択不可にする
+if (slotStart > twoMonthsLater) {
+    cell.textContent = '✕'; // セルの表示を「✕」に変更
+    cell.classList.add('unavailable'); // CSSクラス 'unavailable' を追加（スタイルを変更）
+    continue; // このループの処理をスキップして次へ
 }
 
                     // 日付を跨ぐ場合は✕
