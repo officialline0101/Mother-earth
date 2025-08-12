@@ -970,6 +970,7 @@
             <button type="button" onclick="showMenu('tyuseitai')">宙こと整体</button>
             <button type="button" onclick="showMenu('makomo')">まこも＆よもぎ蒸し</button>
             <button type="button" onclick="showMenu('hougyoku')">勾玉セラピー</button>
+            <button type="button" onclick="showMenu('setto')">セットメニュー</button>
             <button type="button" onclick="showMenu('sonota')">その他メニュー</button>
         </div>
 
@@ -1047,6 +1048,20 @@
             </div>
             <div class="symptoms">
                 <button type="button" onclick="selectSymptom(this)" data-category="勾玉セラピー" data-price="15000">勾玉セラピー(11,000円/60分)</button>
+            </div>
+        </div>
+
+        <div id="setto" class="menu-section">
+            <div class="highlight-background">
+                <span class="highlight-text">◆セットメニュー◆</span>
+            </div>
+            <div class="symptoms">
+                <button type="button" onclick="selectSymptom(this)" data-category="セットメニュー" data-price="15000">宙ことヒーリング＋バザルト全身（120分）</button>
+                <div class="info-text">26,000円 → 25,000円</div>
+                <button type="button" onclick="selectSymptom(this)" data-category="セットメニュー" data-price="15000">宙こと整体＋バザルト全身（120分）</button>
+                <div class="info-text">26,000円 → 25,000円</div>
+                <button type="button" onclick="selectSymptom(this)" data-category="セットメニュー" data-price="15000">まこも蒸し<br>＋<br>よもぎ蒸し<br>＋<br>バザルトストーントリートメント（120分）</button>
+                <div class="info-text">18,500円</div>
             </div>
         </div>
 
@@ -1157,6 +1172,9 @@
         let selectedirradiationsTime = 0; // 訪問回数で選択された時間
 
         let menuTimes = {
+            '宙ことヒーリング＋バザルト全身（120分）': 150,
+            '宙こと整体＋バザルト全身（120分）': 150,
+            'まこも蒸し＋よもぎ蒸し＋バザルトストーントリートメント（120分）': 150,
             '全身トリートメント(15,000円/120分)': 150,
             '上半身トリートメント(8,000円/60分)': 90,
             '下半身トリートメント(8,000円/60分)': 90,
