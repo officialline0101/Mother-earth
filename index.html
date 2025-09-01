@@ -1060,7 +1060,7 @@
                 <div class="info-text">26,000円 → 25,000円</div>
                 <button type="button" onclick="selectSymptom(this)" data-category="セットメニュー" data-price="15000">宙こと整体＋バザルト全身（120分）</button>
                 <div class="info-text">26,000円 → 25,000円</div>
-                <button type="button" onclick="selectSymptom(this)" data-category="セットメニュー" data-price="15000">まこも蒸し<br>＋<br>よもぎ蒸し<br>＋<br>バザルトストーントリートメント（120分）</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="セットメニュー" data-price="15000">まこも蒸し＋よもぎ蒸し＋バザルトストーントリートメント（120分）</button>
                 <div class="info-text">18,500円</div>
             </div>
         </div>
@@ -1070,6 +1070,7 @@
                 <span class="highlight-text">◆その他メニュー◆</span>
             </div>
             <div class="symptoms">
+                <button type="button" onclick="selectSymptom(this)" data-category="その他メニュー" data-price="15000">回数券バザルトトリートメント(120分)</button>
                 <button type="button" onclick="selectSymptom(this)" data-category="その他メニュー" data-price="15000">回数券未購入の方のみ<br>全セットメニュー(40,000円/240分)</button>
                 <button type="button" onclick="selectSymptom(this)" data-category="その他メニュー" data-price="15000">バザルトストーン×宙こと整体<br>(27,000円/150分)</button>
                 <button type="button" onclick="selectSymptom(this)" data-category="その他メニュー" data-price="15000">回数券購入済みの方のみ<br>バザルトストーン×宙こと整体(150分)</button>
@@ -1172,6 +1173,7 @@
         let selectedirradiationsTime = 0; // 訪問回数で選択された時間
 
         let menuTimes = {
+            '回数券バザルトトリートメント(120分)': 150,
             '宙ことヒーリング＋バザルト全身（120分）': 150,
             '宙こと整体＋バザルト全身（120分）': 150,
             'まこも蒸し＋よもぎ蒸し＋バザルトストーントリートメント（120分）': 150,
