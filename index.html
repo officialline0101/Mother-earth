@@ -15,7 +15,7 @@
             /* さらに右へ */
             top: 80%;
             /* 画面中央に固定 */
-            transform: translateY(-50%) translateX(13px);
+            transform: translateY(-50%) translateX(16px);
             /* 中央配置と右ずらし */
             background: #ff9bcb;
             display: flex;
@@ -96,7 +96,7 @@
             background-color: #fdfdfd;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            width: 90%;
+            width: 96%;
             max-width: 500px;
             padding: 25px;
             box-sizing: border-box;
@@ -1056,13 +1056,13 @@
             </div>
             <div class="symptoms">
                 <button type="button" onclick="selectSymptom(this)" data-category="セットメニュー" data-price="15000">宙ことヒーリング＋バザルト全身（120分）</button>
-                <div class="info-text">27000円→25000円</div>
-                <button type="button" onclick="selectSymptom(this)" data-category="セットメニュー" data-price="15000">宙こと整体＋バザルト全身（120分）</button>
-                <div class="info-text">27000円→25000円</div>
+                <div class="info-text">27,000円→25000円</div>
+                <button type="button" onclick="selectSymptom(this)" data-category="セットメニュー" data-price="15000">宙ことヒーリング＋宙こと整体（90分）</button>
+                <div class="info-text">21,000円</div>
                 <button type="button" onclick="selectSymptom(this)" data-category="セットメニュー" data-price="15000">まこも蒸し<br>＋<br>よもぎ蒸し<br>＋<br>バザルトストーントリートメント（120分）</button>
                 <div class="info-text">18,500円</div>
-                <button type="button" onclick="selectSymptom(this)" data-category="その他メニュー" data-price="15000">バザルトストーン×宙こと整体(150分)</button>
-                <div class="info-text">25,000円</div>
+                <button type="button" onclick="selectSymptom(this)" data-category="その他メニュー" data-price="15000">バザルトストーン＋宙こと整体（150分）</button>
+                <div class="info-text">24,000円</div>
                 <button type="button" onclick="selectSymptom(this)" data-category="その他メニュー" data-price="15000">全セットメニュー（240分）<br>身体の声とあなたに必要なメッセージ付き</button>
                 <div class="info-text">54000円→50000円</div>
             </div>
@@ -1179,7 +1179,7 @@
         let menuTimes = {
             '回数券バザルトトリートメント(120分)': 150,
             '宙ことヒーリング＋バザルト全身（120分）': 180,
-            '宙こと整体＋バザルト全身（120分）': 180,
+            '宙ことヒーリング＋宙こと整体（90分）': 120,
             'まこも蒸し＋よもぎ蒸し＋バザルトストーントリートメント（120分）': 180,
             '全身トリートメント(15,000円/120分)': 150,
             '上半身トリートメント(8,000円/60分)': 90,
@@ -1199,7 +1199,7 @@
             '全セットメニュー（40000/240分）身体の声とあなたに必要なメッセージ付き': 270,
             '全セットメニュー（240分）身体の声とあなたに必要なメッセージ付き': 270,
             'バザルトストーン×宙こと整体(27,000円/150分)': 180,
-            'バザルトストーン×宙こと整体(150分)': 180,
+            'バザルトストーン＋宙こと整体（150分）': 180,
             '回数券購入済みの方のみバザルトストーン×宙こと整体(150分)': 180,
             '回数券購入済みの方のみバザルト×宙こと整体×まこもよもぎ蒸し(180分)': 210
         };
@@ -1343,125 +1343,173 @@
             const selectedMenusDisplay = document.getElementById("selected-menus-display");
             const selectedMenuNameDiv = document.getElementById('selected-menu-name');
 
-            // クリックしたボタンがすでに `active` なら解除
+            // トグル
             if (button.classList.contains('active')) {
-                button.classList.remove('active');
+                button.classList.remove('active'); // ← 解除
             } else {
-                let updatedSelectedButtons = document.querySelectorAll('.symptoms button.active');
-                if (updatedSelectedButtons.length >= 3) return;
-                button.classList.add('active');
+                const activeCount = document.querySelectorAll('.symptoms button.active').length;
+                if (activeCount >= 3) return;
+                button.classList.add('active');    // ← 選択
             }
 
-            // ← ここで最新状態を再取得
-            let updatedSelectedButtons = document.querySelectorAll('.symptoms button.active');
+            // 最新状態
+            const updatedSelectedButtons = document.querySelectorAll('.symptoms button.active');
 
-            // メニュー時間と価格をリセット
+            // リセット
             selectedMenuTime = 0;
             selectedSymptom = [];
             menuPrice = 0;
 
-            // ボタンがすべて解除された場合
+            // 0件ならすべて隠す
             if (updatedSelectedButtons.length === 0) {
-                treatmentText.style.display = 'none';
+                if (treatmentText) {
+                    treatmentText.style.display = 'none';
+                    treatmentText.innerHTML = '';
+                }
                 selectedMenusDisplay.style.display = 'none';
                 selectedMenusDisplay.innerHTML = '';
-                selectedMenuNameDiv.style.display = 'none';  // ← 忘れずここで非表示に
+                if (selectedMenuNameDiv) selectedMenuNameDiv.style.display = 'none';
                 return;
-            } else {
-                // 選択された各ボタンについて処理
-                updatedSelectedButtons.forEach((btn) => {
-                    const selectedMenuName = btn.textContent;
-                    const category = btn.getAttribute('data-category'); // 追加
-                    selectedSymptom.push({ category, name: selectedMenuName }); // ← 変更
-                    selectedMenuTime += menuTimes[selectedMenuName] || 0;
-                    menuPrice += parseInt(btn.getAttribute('data-price'), 10) || 0;
-                });
             }
 
-            console.log('選択されたメニューの時間:', selectedMenuTime);
+            // 選択済みから再計算
+            updatedSelectedButtons.forEach((btn) => {
+                const selectedMenuName = btn.textContent;
+                const category = btn.getAttribute('data-category');
+                selectedSymptom.push({ category, name: selectedMenuName });
+                selectedMenuTime += menuTimes[selectedMenuName] || 0;
+                menuPrice += parseInt(btn.getAttribute('data-price'), 10) || 0;
+            });
 
-            // カレンダーを更新するために取得する日付を渡す
-            fetchAvailability(currentDate);
-
-            if (treatmentId === 'treatment1') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：90分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：6,500円<br>初診料：＋2,200円</strong></div>`;
-            } else if (treatmentId === 'treatment2') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：60分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：4,500円<br>初診料：＋2,200円</strong></div>`;
-            } else if (treatmentId === 'treatment3') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：120分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：8,700円<br>初診料：＋2,200円</strong></div>`;
-            } else if (treatmentId === 'treatment4') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：30分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：1,700円<br>初診料：＋2,200円</strong></div>`;
-            } else if (treatmentId === 'treatment5') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：60分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：6,500円</strong></div>`;
-            } else if (treatmentId === 'treatment6') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：30分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：4,500円</strong></div>`;
-            } else if (treatmentId === 'treatment7') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：90分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：8,700円</strong></div>`;
-            } else if (treatmentId === 'treatment8') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：15分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：1,700円</strong></div>`;
-            } else if (treatmentId === 'treatment9') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：15分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：1,700円</strong></div>`;
-            } else {
-                treatmentText.innerHTML = '';
+            // カレンダー更新
+            if (typeof fetchAvailability === 'function') {
+                fetchAvailability(currentDate);
             }
 
-            // 移動させる
-            button.parentNode.insertBefore(document.getElementById("treatment-text"), button.nextSibling);
+            // --- ここがポイント ---
+            // 解除クリックの場合（このボタンが非activeになった後）は詳細を表示しない
+            if (!button.classList.contains('active')) {
+                if (treatmentText) {
+                    treatmentText.style.display = 'none';
+                    treatmentText.innerHTML = '';
+                }
+            } else {
+                // 表示内容を treatmentId で分岐（未指定/不一致なら表示しない）
+                let html = '';
+                if (treatmentId === 'treatment1') {
+                    html = `<div style="text-align: left;"><strong>所要時間：90分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：6,500円<br>初診料：＋2,200円</strong></div>`;
+                } else if (treatmentId === 'treatment2') {
+                    html = `<div style="text-align: left;"><strong>所要時間：60分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：4,500円<br>初診料：＋2,200円</strong></div>`;
+                } else if (treatmentId === 'treatment3') {
+                    html = `<div style="text-align: left;"><strong>所要時間：120分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：8,700円<br>初診料：＋2,200円</strong></div>`;
+                } else if (treatmentId === 'treatment4') {
+                    html = `<div style="text-align: left;"><strong>所要時間：30分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：1,700円<br>初診料：＋2,200円</strong></div>`;
+                } else if (treatmentId === 'treatment5') {
+                    html = `<div style="text-align: left;"><strong>所要時間：60分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：6,500円</strong></div>`;
+                } else if (treatmentId === 'treatment6') {
+                    html = `<div style="text-align: left;"><strong>所要時間：30分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：4,500円</strong></div>`;
+                } else if (treatmentId === 'treatment7') {
+                    html = `<div style="text-align: left;"><strong>所要時間：90分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：8,700円</strong></div>`;
+                } else if (treatmentId === 'treatment8') {
+                    html = `<div style="text-align: left;"><strong>所要時間：15分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：1,700円</strong></div>`;
+                } else if (treatmentId === 'treatment9') {
+                    html = `<div style="text-align: left;"><strong>所要時間：15分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：1,700円</strong></div>`;
+                }
 
+                // 内容が用意できた時だけ移動＆表示
+                if (html) {
+                    treatmentText.innerHTML = html;
+                    button.parentNode.insertBefore(treatmentText, button.nextSibling);
+                    treatmentText.style.display = 'block';
+                } else {
+                    treatmentText.innerHTML = '';
+                    treatmentText.style.display = 'none';
+                }
+            }
+
+            // 選択リストの描画
             if (selectedSymptom.length > 0) {
                 selectedMenusDisplay.innerHTML = `
-        <div class="menu-items-wrapper">
-            ${selectedSymptom.map(item => `
-                <div class="menu-item">
-                    <span>《${item.category}》<br>${item.name}</span>
-                    <button class="remove-button" data-category="${item.category}" data-name="${item.name}" onclick="removeSymptom(this)">✕</button>
-                </div>
-            `).join('')}
-        </div>
-    `;
+            <div class="menu-items-wrapper">
+                ${selectedSymptom.map(item => `
+                    <div class="menu-item">
+                        <span>《${item.category}》<br>${item.name}</span>
+                        <button class="remove-button" data-category="${item.category}" data-name="${item.name}" onclick="removeSymptom(this)">✕</button>
+                    </div>
+                `).join('')}
+            </div>
+        `;
                 selectedMenusDisplay.style.display = 'block';
             } else {
                 selectedMenusDisplay.innerHTML = '';
                 selectedMenusDisplay.style.display = 'none';
             }
 
-
-            treatmentText.style.display = 'block';
-
             updateDisplayInfo();
         }
 
-        function removeSymptom(button) {
-            const category = button.getAttribute('data-category');
-            const name = button.getAttribute('data-name');
+function removeSymptom(button) {
+  const category = button.getAttribute('data-category');
+  const name = button.getAttribute('data-name');
+  const container = document.getElementById("selected-menus-display");
 
-            // active を外す
-            const buttons = document.querySelectorAll('.symptoms button');
-            buttons.forEach(btn => {
-                if (btn.textContent === name && btn.getAttribute('data-category') === category) {
-                    btn.classList.remove('active');
-                }
-            });
+  // 所要時間が変わるため、選択済み日時はクリア
+  selectedFullDate = '';
 
-            // selectedSymptom から削除
-            selectedSymptom = selectedSymptom.filter(item => !(item.category === category && item.name === name));
+  // 1) まずUI上の該当チップを即時削除（UIを真実のソースに）
+  const itemEl = button.closest('.menu-item');
+  if (itemEl) itemEl.remove();
 
-            // 時間と価格を再計算
-            selectedMenuTime = 0;
-            menuPrice = 0;
-            selectedSymptom.forEach(item => {
-                selectedMenuTime += menuTimes[item.name] || 0;
-                const btn = [...document.querySelectorAll('.symptoms button')].find(
-                    b => b.textContent === item.name && b.getAttribute('data-category') === item.category
-                );
-                if (btn) {
-                    menuPrice += parseInt(btn.getAttribute('data-price'), 10) || 0;
-                }
-            });
+  // 2) 元ボタン（.symptoms）を非アクティブ化
+  const srcBtn = [...document.querySelectorAll('.symptoms button')].find(
+    b => b.textContent === name && b.getAttribute('data-category') === category
+  );
+  if (srcBtn) srcBtn.classList.remove('active');
 
-            updateSelectedMenusDisplay();
-            updateDisplayInfo();
-        }
+  // 3) 配列は「今アクティブな症状ボタン」から再構築してズレを無くす
+  selectedSymptom = [...document.querySelectorAll('.symptoms button.active')].map(b => ({
+    category: b.getAttribute('data-category'),
+    name: b.textContent
+  }));
+
+  // 4) 時間・価格を再計算（activeボタンから）
+  selectedMenuTime = 0;
+  menuPrice = 0;
+  selectedSymptom.forEach(item => {
+    selectedMenuTime += (menuTimes[item.name] || 0);
+    const btn = [...document.querySelectorAll('.symptoms button')].find(
+      b => b.textContent === item.name && b.getAttribute('data-category') === item.category
+    );
+    if (btn) menuPrice += parseInt(btn.getAttribute('data-price') || '0', 10);
+  });
+
+  // 5) カレンダー再取得
+  if (typeof fetchAvailability === 'function') {
+    fetchAvailability(currentDate);
+  }
+
+  // 6) 詳細テキストは閉じる
+  const treatmentText = document.getElementById("treatment-text");
+  if (treatmentText) {
+    treatmentText.style.display = 'none';
+    treatmentText.innerHTML = '';
+  }
+
+  // 7) 「配列の長さ」ではなく「UIにチップが残っているか」で表示制御
+  if (container) {
+    const remain = container.querySelectorAll('.menu-item').length;
+    if (remain === 0) {
+      container.style.display = 'none';
+      container.innerHTML = '';
+      const selectedMenuNameDiv = document.getElementById('selected-menu-name');
+      if (selectedMenuNameDiv) selectedMenuNameDiv.style.display = 'none';
+    } else {
+      container.style.display = 'block';
+    }
+  }
+
+  updateDisplayInfo();
+}
 
         function updateSelectedMenusDisplay() {
             const selectedMenusDisplay = document.getElementById("selected-menus-display");
