@@ -1765,7 +1765,7 @@ liff.sendMessages([{
             const table = calendar.querySelector('table tbody');
 
             const times = [
-                '09:00', '09:30', '10:00', '10:30', '11:00', '11:30',
+                '10:00', '10:30', '11:00', '11:30',
                 '12:00', '12:30', '13:00', '13:30',
                 '14:00', '14:30', '15:00', '15:30',
                 '16:00', '16:30', '17:00', '17:30',
@@ -1834,19 +1834,6 @@ liff.sendMessages([{
                     // 仮に終了時間を計算
                     slotEnd.setMinutes(slotStart.getMinutes() + menuDuration + visitDuration + irradiationsDuration);
 
-// ---------------------------------------------------
-                    // 【追加箇所】2026年1月1日～1月31日の09:00-09:59を✕にする
-                    // ---------------------------------------------------
-                    if (
-                        slotStart.getFullYear() === 2026 && // 2026年
-                        slotStart.getMonth() === 0 &&       // 1月 (JavaScriptの月は0始まりなので0が1月)
-                        slotStart.getHours() === 9          // 9時台 (9:00, 9:30など)
-                    ) {
-                        cell.textContent = '✕';
-                        cell.classList.add('unavailable');
-                        continue; 
-                    }
-                    // ---------------------------------------------------
 
 // 現在の日付（now）を元に2か月後の日付を作成
 const twoMonthsLater = new Date(now);
