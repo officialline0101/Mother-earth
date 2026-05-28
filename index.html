@@ -981,6 +981,7 @@
             <button type="button" onclick="showMenu('makomo')">まこも＆よもぎ蒸し</button>
             <button type="button" onclick="showMenu('hougyoku')">勾玉セラピー</button>
             <button type="button" onclick="showMenu('sonota')">その他メニュー</button>
+            <button type="button" onclick="showMenu('diet')">ダイエット集中コース</button>
         </div>
 
         <!-- メニュー表示エリア（選択されたメニュー名がここに出る） -->
@@ -1081,6 +1082,23 @@
                 <button type="button" onclick="selectSymptom(this)" data-category="その他メニュー" data-price="15000">回数券購入済みの方のみ<br>バザルトストーン×宙こと整体(150分)</button>
                 <button type="button" onclick="selectSymptom(this)" data-category="その他メニュー" data-price="15000">回数券購入済みの方のみ<br>バザルト×宙こと整体×まこもよもぎ蒸し(180分)</button>
                 <button type="button" onclick="selectSymptom(this)" data-category="その他メニュー" data-price="15000">回数券購入済みまこも＆よもぎ蒸しと<br>バザルトストーンのセット</button>
+            </div>
+        </div>
+
+        <div id="diet" class="menu-section">
+            <div class="highlight-background">
+                <span class="highlight-text">◆ダイエット集中コース◆</span>
+            </div>
+            <div class="symptoms">
+                <button type="button" onclick="selectSymptom(this)" data-category="ダイエット集中コース" data-price="12000">【巡り改善ライトコース】<br>通常 ¥12,000（150分）</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="ダイエット集中コース" data-price="9900">【巡り改善ライトコース】<br>初回モニター¥9,900（150分）</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="ダイエット集中コース" data-price="0">【巡り改善ライトコース】<br>ダイエット集中コース3ヶ月の方（150分）</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="ダイエット集中コース" data-price="18000">【巡り改善スタンダードコース】<br>通常 ¥18,000（180分）</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="ダイエット集中コース" data-price="13900">【巡り改善スタンダードコース】<br>初回モニター ¥13,900（180分）</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="ダイエット集中コース" data-price="0">【巡り改善スタンダードコース】<br>ダイエット集中コース3ヶ月の方（180分）</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="ダイエット集中コース" data-price="27000">【巡り改善プレミアムコース】<br>通常 ¥27,000（210分）</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="ダイエット集中コース" data-price="18900">【巡り改善プレミアムコース】<br>初回モニター ¥18,900（210分）</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="ダイエット集中コース" data-price="0">【巡り改善プレミアムコース】<br>ダイエット集中コース3ヶ月の方（210分）</button>
             </div>
         </div>
 
@@ -1204,7 +1222,19 @@
             'バザルトストーン×宙こと整体(150分)': 180,
             'バザルトストーン＋宙こと整体（150分）': 180,
             '回数券購入済みの方のみバザルトストーン×宙こと整体(150分)': 180,
-            '回数券購入済みの方のみバザルト×宙こと整体×まこもよもぎ蒸し(180分)': 210
+            '回数券購入済みの方のみバザルト×宙こと整体×まこもよもぎ蒸し(180分)': 210,
+            // ダイエット集中コース（ライト：150分）
+            '【巡り改善ライトコース】通常 ¥12,000（150分）': 150,
+            '【巡り改善ライトコース】初回モニター¥9,900（150分）': 150,
+            '【巡り改善ライトコース】ダイエット集中コース3ヶ月の方（150分）': 150,
+            // ダイエット集中コース（スタンダード：180分）
+            '【巡り改善スタンダードコース】通常 ¥18,000（180分）': 180,
+            '【巡り改善スタンダードコース】初回モニター ¥13,900（180分）': 180,
+            '【巡り改善スタンダードコース】ダイエット集中コース3ヶ月の方（180分）': 180,
+            // ダイエット集中コース（プレミアム：210分）
+            '【巡り改善プレミアムコース】通常 ¥27,000（210分）': 210,
+            '【巡り改善プレミアムコース】初回モニター ¥18,900（210分）': 210,
+            '【巡り改善プレミアムコース】ダイエット集中コース3ヶ月の方（210分）': 210
         };
 
 
