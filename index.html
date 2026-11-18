@@ -969,8 +969,30 @@
         <div class="visit-buttons">
             <button type="button" id="firstVisit" onclick="selectVisit(this)">1回目</button>
             <button type="button" id="repeatVisit" onclick="selectVisit(this)">2回目以降</button>
+            <button type="button" id="uwardVisit" onclick="selectVisit(this)" style="flex-basis: 100%;">ユーワードの方はこちら</button>
         </div>
 
+        <!-- ユーワードの方専用メニュー（「ユーワードの方はこちら」選択時のみ表示） -->
+        <div id="uwardMenu" style="display: none;">
+            <div class="label">ユーワード内で選択されたメニューをお選びください<span class="required">必須</span></div>
+            <div class="symptoms">
+                <button type="button" onclick="selectSymptom(this)" data-category="ユーワード" data-price="0">【平日限定】<br>バザルトストーントリートメント<br>（ホットストーン使用）90分</button>
+                <div class="info-text">所要時間：150分</div>
+                <button type="button" onclick="selectSymptom(this)" data-category="ユーワード" data-price="0">バザルトストーントリートメント<br>（ホットストーン使用）120分</button>
+                <div class="info-text">所要時間：180分</div>
+                <button type="button" onclick="selectSymptom(this)" data-category="ユーワード" data-price="0">お顔のリフトアップ</button>
+                <div class="info-text">所要時間：45分</div>
+                <button type="button" onclick="selectSymptom(this)" data-category="ユーワード" data-price="0">陰陽統合した唯一無二の勾玉作成<br>（ZOOMやLINE電話可能）</button>
+                <div class="info-text">所要時間：60分</div>
+                <button type="button" onclick="selectSymptom(this)" data-category="ユーワード" data-price="0">あなたを丸ごと癒します<br>心と体を繋げるセッション</button>
+                <div class="info-text">所要時間：240分</div>
+                <button type="button" onclick="selectSymptom(this)" data-category="ユーワード" data-price="0">まこも＆よもぎ蒸し</button>
+                <div class="info-text">所要時間：60分</div>
+            </div>
+        </div>
+
+        <!-- 通常メニュー選択エリア（ユーワード選択時は非表示） -->
+        <div id="normalMenuArea">
         <div class="label" id="course">メニューをお選びください<span class="required">必須</span></div>
         <div class="info-text">【シンキングボウル】ご希望の方は<br>≪メッセージ≫にご記入ください。</div>
         <div class="menu-sections">
@@ -983,6 +1005,7 @@
             <button type="button" onclick="showMenu('sonota')">その他メニュー</button>
             <button type="button" onclick="showMenu('diet')">ダイエット集中コース</button>
         </div>
+        </div>
 
         <!-- メニュー表示エリア（選択されたメニュー名がここに出る） -->
         <div id="selected-menus-display" style="display: none; font-weight: bold; margin-top: 10px;"></div>
@@ -994,10 +1017,10 @@
                 <span class="highlight-text">◆バザルトストーントリートメント◆</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this)" data-category="バザルトストーントリートメント" data-price="15000">全身トリートメント(15,000円/120分)</button>
-                <button type="button" onclick="selectSymptom(this)" data-category="バザルトストーントリートメント" data-price="15000">上半身トリートメント(8,000円/60分)</button>
-                <button type="button" onclick="selectSymptom(this)" data-category="バザルトストーントリートメント" data-price="15000">下半身トリートメント(8,000円/60分)</button>
-                <button type="button" onclick="selectSymptom(this)" data-category="バザルトストーントリートメント" data-price="15000">デコルテフェイシャル(8,000円/60分)</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="バザルトストーントリートメント" data-price="15000">全身トリートメント(16,500円/120分)</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="バザルトストーントリートメント" data-price="15000">上半身トリートメント(8,800円/60分)</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="バザルトストーントリートメント" data-price="15000">下半身トリートメント(8,800円/60分)</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="バザルトストーントリートメント" data-price="15000">デコルテフェイシャル(8,800円/60分)</button>
             </div>
             </div>
 
@@ -1006,9 +1029,9 @@
                 <span class="highlight-text">◆宙ことヒーリング◆</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this)" data-category="宙ことヒーリング" data-price="15000">宙ことヒーリング(12,000円/60分)</button>
-                <button type="button" onclick="selectSymptom(this)" data-category="宙ことヒーリング" data-price="15000">遠隔宙ことヒーリング(12,000円/60分)</button>
-        <div class="info-text">遠隔宙ことヒーリング(12,000円/60分)は<br>ZOOMorLINE電話どちらが希望か<br>≪メッセージ≫にご記入ください。</div>
+                <button type="button" onclick="selectSymptom(this)" data-category="宙ことヒーリング" data-price="15000">宙ことヒーリング(13,200円/60分)</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="宙ことヒーリング" data-price="15000">遠隔宙ことヒーリング(13,200円/60分)</button>
+        <div class="info-text">遠隔宙ことヒーリング(13,200円/60分)は<br>ZOOMorLINE電話どちらが希望か<br>≪メッセージ≫にご記入ください。</div>
             </div>
         </div>
 
@@ -1017,17 +1040,17 @@
                 <span class="highlight-text">◆宙こと整体◆</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this)" data-category="宙こと整体" data-price="15000">宙こと整体全身(12,000円/30分)</button>
-                <button type="button" onclick="selectSymptom(this)" data-category="宙こと整体" data-price="15000">上半身(7,000円/20分)</button>
-                <button type="button" onclick="selectSymptom(this)" data-category="宙こと整体" data-price="15000">お試しバストアップ(3,500円/15分)</button>
-                <button type="button" onclick="selectSymptom(this)" data-category="宙こと整体" data-price="15000">お試しフェイスアップ(3,500円/15分)</button>
-                <button type="button" onclick="selectSymptom(this)" data-category="宙こと整体" data-price="15000">腰/下半身(7,000円/20分)</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="宙こと整体" data-price="15000">宙こと整体全身(13,200円/30分)</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="宙こと整体" data-price="15000">上半身(7,700円/20分)</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="宙こと整体" data-price="15000">お試しバストアップ(3,850円/15分)</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="宙こと整体" data-price="15000">お試しフェイスアップ(3,850円/15分)</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="宙こと整体" data-price="15000">腰/下半身(7,700円/20分)</button>
             </div>
             <div class="highlight-background">
                 <span class="highlight-text">オプション</span>
             </div>
             <div class="irradiations">
-                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">セット価格 まこも＆よもぎ蒸し<br>(セット料金3,500円/30分)</button>
+                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">セット価格 まこも＆よもぎ蒸し<br>(セット料金3,850円/30分)</button>
             </div>
         </div>
 
@@ -1036,7 +1059,7 @@
                 <span class="highlight-text">◆まこも＆よもぎ蒸し◆</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this)" data-category="まこも＆よもぎ蒸し" data-price="15000">まこも＆よもぎ蒸し<br>(単品4,000円・セット料金3,500円/30分)</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="まこも＆よもぎ蒸し" data-price="15000">まこも＆よもぎ蒸し<br>(単品4,400円・セット料金3,850円/30分)</button>
                 <button type="button" onclick="selectSymptom(this)" data-category="まこも＆よもぎ蒸し" data-price="15000">回数券ご購入の方のみ<br>まこも＆よもぎ蒸し(30分)</button>
             </div>
         </div>
@@ -1046,8 +1069,8 @@
                 <span class="highlight-text">◆勾玉セラピー◆</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this)" data-category="勾玉セラピー" data-price="15000">勾玉セラピー(12,000円/60分)</button>
-        <div class="info-text">勾玉セラピー(12,000円/60分)は<br>ZOOMorLINE電話どちらが希望か<br>≪メッセージ≫にご記入ください。</div>
+                <button type="button" onclick="selectSymptom(this)" data-category="勾玉セラピー" data-price="15000">勾玉セラピー(13,200円/60分)</button>
+        <div class="info-text">勾玉セラピー(13,200円/60分)は<br>ZOOMorLINE電話どちらが希望か<br>≪メッセージ≫にご記入ください。</div>
             </div>
         </div>
 
@@ -1057,17 +1080,17 @@
             </div>
             <div class="symptoms">
                 <button type="button" onclick="selectSymptom(this)" data-category="組み合わせメニュー" data-price="15000">宙こと整体とまこも＆よもぎ蒸し(60分)</button>
-                <div class="info-text">15,500円</div>
+                <div class="info-text">17,050円</div>
                 <button type="button" onclick="selectSymptom(this)" data-category="組み合わせメニュー" data-price="15000">宙ことヒーリング＋バザルト全身（120分）</button>
-                <div class="info-text">27,000円→25000円</div>
+                <div class="info-text">29,700円→27500円</div>
                 <button type="button" onclick="selectSymptom(this)" data-category="組み合わせメニュー" data-price="15000">宙ことヒーリング＋宙こと整体（90分）</button>
-                <div class="info-text">21,000円</div>
+                <div class="info-text">23,100円</div>
                 <button type="button" onclick="selectSymptom(this)" data-category="組み合わせメニュー" data-price="15000">まこも蒸し<br>＋<br>よもぎ蒸し<br>＋<br>バザルトストーントリートメント（120分）</button>
-                <div class="info-text">18,500円</div>
+                <div class="info-text">20,350円</div>
                 <button type="button" onclick="selectSymptom(this)" data-category="その他メニュー" data-price="15000">バザルトストーン＋宙こと整体（150分）</button>
-                <div class="info-text">24,000円</div>
+                <div class="info-text">26,400円</div>
                 <button type="button" onclick="selectSymptom(this)" data-category="その他メニュー" data-price="15000">全セットメニュー（240分）<br>身体の声とあなたに必要なメッセージ付き</button>
-                <div class="info-text">40,000円</div>
+                <div class="info-text">44,000円</div>
             </div>
         </div>
 
@@ -1077,7 +1100,7 @@
             </div>
             <div class="symptoms">
                 <button type="button" onclick="selectSymptom(this)" data-category="その他メニュー" data-price="15000">回数券バザルトトリートメント(120分)</button>
-                <button type="button" onclick="selectSymptom(this)" data-category="その他メニュー" data-price="15000">全セットメニュー（40000円/240分）<br>身体の声とあなたに必要なメッセージ付き</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="その他メニュー" data-price="15000">全セットメニュー（44000円/240分）<br>身体の声とあなたに必要なメッセージ付き</button>
                 <button type="button" onclick="selectSymptom(this)" data-category="その他メニュー" data-price="15000">バザルトストーン×宙こと整体(150分)</button>
                 <button type="button" onclick="selectSymptom(this)" data-category="その他メニュー" data-price="15000">回数券購入済みの方のみ<br>バザルトストーン×宙こと整体(150分)</button>
                 <button type="button" onclick="selectSymptom(this)" data-category="その他メニュー" data-price="15000">回数券購入済みの方のみ<br>バザルト×宙こと整体×まこもよもぎ蒸し(180分)</button>
@@ -1091,14 +1114,14 @@
             </div>
             <div class="info-text">※内訳：バザルト時間＋P90&シェイクン50分の施術時間にインターバル30分を加えた枠を確保しています</div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this)" data-category="ダイエット集中コース" data-price="12000">【巡り改善ライトコース】<br>通常 ¥12,000<br>（バザルト60分＋P90&シェイクン50分 計110分）</button>
-                <button type="button" onclick="selectSymptom(this)" data-category="ダイエット集中コース" data-price="9900">【巡り改善ライトコース】<br>初回モニター¥9,900<br>（バザルト60分＋P90&シェイクン50分 計110分）</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="ダイエット集中コース" data-price="13200">【巡り改善ライトコース】<br>通常 ¥13,200<br>（バザルト60分＋P90&シェイクン50分 計110分）</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="ダイエット集中コース" data-price="10890">【巡り改善ライトコース】<br>初回モニター¥10,890<br>（バザルト60分＋P90&シェイクン50分 計110分）</button>
                 <button type="button" onclick="selectSymptom(this)" data-category="ダイエット集中コース" data-price="0">【巡り改善ライトコース】<br>ダイエット集中コース3ヶ月の方<br>（バザルト60分＋P90&シェイクン50分 計110分）</button>
-                <button type="button" onclick="selectSymptom(this)" data-category="ダイエット集中コース" data-price="18000">【巡り改善スタンダードコース】<br>通常 ¥18,000<br>（バザルト90分＋P90&シェイクン50分 計140分）</button>
-                <button type="button" onclick="selectSymptom(this)" data-category="ダイエット集中コース" data-price="13900">【巡り改善スタンダードコース】<br>初回モニター ¥13,900<br>（バザルト90分＋P90&シェイクン50分 計140分）</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="ダイエット集中コース" data-price="19800">【巡り改善スタンダードコース】<br>通常 ¥19,800<br>（バザルト90分＋P90&シェイクン50分 計140分）</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="ダイエット集中コース" data-price="15290">【巡り改善スタンダードコース】<br>初回モニター ¥15,290<br>（バザルト90分＋P90&シェイクン50分 計140分）</button>
                 <button type="button" onclick="selectSymptom(this)" data-category="ダイエット集中コース" data-price="0">【巡り改善スタンダードコース】<br>ダイエット集中コース3ヶ月の方<br>（バザルト90分＋P90&シェイクン50分 計140分）</button>
-                <button type="button" onclick="selectSymptom(this)" data-category="ダイエット集中コース" data-price="27000">【巡り改善プレミアムコース】<br>通常 ¥27,000<br>（バザルト120分＋P90&シェイクン50分 計170分）</button>
-                <button type="button" onclick="selectSymptom(this)" data-category="ダイエット集中コース" data-price="18900">【巡り改善プレミアムコース】<br>初回モニター ¥18,900<br>（バザルト120分＋P90&シェイクン50分 計170分）</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="ダイエット集中コース" data-price="29700">【巡り改善プレミアムコース】<br>通常 ¥29,700<br>（バザルト120分＋P90&シェイクン50分 計170分）</button>
+                <button type="button" onclick="selectSymptom(this)" data-category="ダイエット集中コース" data-price="20790">【巡り改善プレミアムコース】<br>初回モニター ¥20,790<br>（バザルト120分＋P90&シェイクン50分 計170分）</button>
                 <button type="button" onclick="selectSymptom(this)" data-category="ダイエット集中コース" data-price="0">【巡り改善プレミアムコース】<br>ダイエット集中コース3ヶ月の方<br>（バザルト120分＋P90&シェイクン50分 計170分）</button>
             </div>
         </div>
@@ -1184,15 +1207,19 @@
         // 訪問回数ごとの時間設定 (例：初めて=20分、2回目以降=15分)
         let visitTimes = {
             '1回目': 0,
-            '2回目以降': 0
+            '2回目以降': 0,
+            'ユーワードの方はこちら': 0
         };
+
+        // ユーワードの【平日限定】メニュー名（選択中は土日祝を予約不可にする）
+        const UWARD_WEEKDAY_ONLY_MENU = '【平日限定】バザルトストーントリートメント（ホットストーン使用）90分';
 
         let selectedVisitTime = 0; // 訪問回数で選択された時間
 
         // 訪問回数ごとの時間設定 (例：初めて=20分、2回目以降=15分)
         let irradiationsTimes = {
             'シンキングボウル(10分)': 10,
-            'セット価格まこも＆よもぎ蒸し(セット料金3,500円/30分)': 60
+            'セット価格まこも＆よもぎ蒸し(セット料金3,850円/30分)': 60
         };
 
         let selectedirradiationsTime = 0; // 訪問回数で選択された時間
@@ -1203,39 +1230,46 @@
             '宙ことヒーリング＋バザルト全身（120分）': 180,
             '宙ことヒーリング＋宙こと整体（90分）': 120,
             'まこも蒸し＋よもぎ蒸し＋バザルトストーントリートメント（120分）': 180,
-            '全身トリートメント(15,000円/120分)': 150,
-            '上半身トリートメント(8,000円/60分)': 90,
-            '下半身トリートメント(8,000円/60分)': 90,
-            'デコルテフェイシャル(8,000円/60分)': 90,
-            '宙ことヒーリング(12,000円/60分)': 90,
-            '遠隔宙ことヒーリング(12,000円/60分)': 70,
-            '宙こと整体全身(12,000円/30分)': 60,
-            '上半身(7,000円/20分)': 50,
-            'お試しバストアップ(3,500円/15分)': 45,
-            'お試しフェイスアップ(3,500円/15分)': 45,
-            '腰/下半身(7,000円/20分)': 50,
-            'まこも＆よもぎ蒸し(単品4,000円・セット料金3,500円/30分)': 60,
+            '全身トリートメント(16,500円/120分)': 150,
+            '上半身トリートメント(8,800円/60分)': 90,
+            '下半身トリートメント(8,800円/60分)': 90,
+            'デコルテフェイシャル(8,800円/60分)': 90,
+            '宙ことヒーリング(13,200円/60分)': 90,
+            '遠隔宙ことヒーリング(13,200円/60分)': 70,
+            '宙こと整体全身(13,200円/30分)': 60,
+            '上半身(7,700円/20分)': 50,
+            'お試しバストアップ(3,850円/15分)': 45,
+            'お試しフェイスアップ(3,850円/15分)': 45,
+            '腰/下半身(7,700円/20分)': 50,
+            'まこも＆よもぎ蒸し(単品4,400円・セット料金3,850円/30分)': 60,
             '回数券ご購入の方のみまこも＆よもぎ蒸し(30分)': 60,
             '回数券購入済みまこも＆よもぎ蒸しとバザルトストーンのセット': 180,
-            '勾玉セラピー(12,000円/60分)': 90,
-            '全セットメニュー（40000/240分）身体の声とあなたに必要なメッセージ付き': 270,
+            '勾玉セラピー(13,200円/60分)': 90,
+            '全セットメニュー（44000円/240分）身体の声とあなたに必要なメッセージ付き': 270,
             '全セットメニュー（240分）身体の声とあなたに必要なメッセージ付き': 270,
             'バザルトストーン×宙こと整体(150分)': 180,
             'バザルトストーン＋宙こと整体（150分）': 180,
             '回数券購入済みの方のみバザルトストーン×宙こと整体(150分)': 180,
             '回数券購入済みの方のみバザルト×宙こと整体×まこもよもぎ蒸し(180分)': 210,
             // ダイエット集中コース（ライト：バザルト60分＋P90&シェイクン50分＋インターバル30分 = 140分枠確保）
-            '【巡り改善ライトコース】通常 ¥12,000（バザルト60分＋P90&シェイクン50分 計110分）': 140,
-            '【巡り改善ライトコース】初回モニター¥9,900（バザルト60分＋P90&シェイクン50分 計110分）': 140,
+            '【巡り改善ライトコース】通常 ¥13,200（バザルト60分＋P90&シェイクン50分 計110分）': 140,
+            '【巡り改善ライトコース】初回モニター¥10,890（バザルト60分＋P90&シェイクン50分 計110分）': 140,
             '【巡り改善ライトコース】ダイエット集中コース3ヶ月の方（バザルト60分＋P90&シェイクン50分 計110分）': 140,
             // ダイエット集中コース（スタンダード：バザルト90分＋P90&シェイクン50分＋インターバル30分 = 170分枠確保）
-            '【巡り改善スタンダードコース】通常 ¥18,000（バザルト90分＋P90&シェイクン50分 計140分）': 170,
-            '【巡り改善スタンダードコース】初回モニター ¥13,900（バザルト90分＋P90&シェイクン50分 計140分）': 170,
+            '【巡り改善スタンダードコース】通常 ¥19,800（バザルト90分＋P90&シェイクン50分 計140分）': 170,
+            '【巡り改善スタンダードコース】初回モニター ¥15,290（バザルト90分＋P90&シェイクン50分 計140分）': 170,
             '【巡り改善スタンダードコース】ダイエット集中コース3ヶ月の方（バザルト90分＋P90&シェイクン50分 計140分）': 170,
             // ダイエット集中コース（プレミアム：バザルト120分＋P90&シェイクン50分＋インターバル30分 = 200分枠確保）
-            '【巡り改善プレミアムコース】通常 ¥27,000（バザルト120分＋P90&シェイクン50分 計170分）': 200,
-            '【巡り改善プレミアムコース】初回モニター ¥18,900（バザルト120分＋P90&シェイクン50分 計170分）': 200,
-            '【巡り改善プレミアムコース】ダイエット集中コース3ヶ月の方（バザルト120分＋P90&シェイクン50分 計170分）': 200
+            '【巡り改善プレミアムコース】通常 ¥29,700（バザルト120分＋P90&シェイクン50分 計170分）': 200,
+            '【巡り改善プレミアムコース】初回モニター ¥20,790（バザルト120分＋P90&シェイクン50分 計170分）': 200,
+            '【巡り改善プレミアムコース】ダイエット集中コース3ヶ月の方（バザルト120分＋P90&シェイクン50分 計170分）': 200,
+            // ユーワードの方専用メニュー（所要時間）
+            '【平日限定】バザルトストーントリートメント（ホットストーン使用）90分': 150,
+            'バザルトストーントリートメント（ホットストーン使用）120分': 180,
+            'お顔のリフトアップ': 45,
+            '陰陽統合した唯一無二の勾玉作成（ZOOMやLINE電話可能）': 60,
+            'あなたを丸ごと癒します心と体を繋げるセッション': 240,
+            'まこも＆よもぎ蒸し': 60
         };
 
 
@@ -1306,7 +1340,7 @@
         <hr>
         <div class="info-row">
             <p>${selectedSymptomText}</p>
-            <button class="edit-button" onclick="scrollToElement('male'); scrollToElement('female'); scrollToElement('whitening');">修正する</button>
+            <button class="edit-button" onclick="scrollToElement('male'); scrollToElement('female'); scrollToElement('whitening'); scrollToElement('uwardMenu');">修正する</button>
         </div>
         <hr>
         <div class="info-row">
@@ -1383,8 +1417,9 @@
             } else {
                 const category = button.getAttribute('data-category');
                 // ダイエット集中コースは1つのみ選択可（既存の集中コース選択を先に解除）
-                if (category === 'ダイエット集中コース') {
-                    document.querySelectorAll('.symptoms button.active[data-category="ダイエット集中コース"]').forEach(b => b.classList.remove('active'));
+                // ユーワードのメニューも1つのみ選択可
+                if (category === 'ダイエット集中コース' || category === 'ユーワード') {
+                    document.querySelectorAll(`.symptoms button.active[data-category="${category}"]`).forEach(b => b.classList.remove('active'));
                 }
                 const activeCount = document.querySelectorAll('.symptoms button.active').length;
                 if (activeCount >= 3) return;
@@ -1617,18 +1652,61 @@ function removeSymptom(button) {
             // 選択された日時をリセット
             selectedFullDate = '';
 
+            const uwardButton = document.getElementById('uwardVisit');
+            const wasUward = uwardButton.classList.contains('active');
+
             document.getElementById('firstVisit').classList.remove('active');
             document.getElementById('repeatVisit').classList.remove('active');
+            uwardButton.classList.remove('active');
             element.classList.add('active');
             visitCount = element.innerText;
 
+            // 「ユーワードの方はこちら」⇔ 通常（1回目/2回目以降）を切り替えたときは
+            // メニュー選択をリセットし、表示するメニューエリアを切り替える
+            const isUward = element.id === 'uwardVisit';
+            if (isUward !== wasUward) {
+                resetMenuSelection();
+                document.getElementById('uwardMenu').style.display = isUward ? 'block' : 'none';
+                document.getElementById('normalMenuArea').style.display = isUward ? 'none' : 'block';
+                selectedMenu = isUward ? 'ユーワード' : '';
+            }
+
             // 選択された訪問回数に対応する時間を取得
-            selectedVisitTime = visitTimes[visitCount];
+            selectedVisitTime = visitTimes[visitCount] || 0;
 
             console.log('選択された訪問回数の時間:', selectedVisitTime);
 
             // カレンダーを更新するために取得する日付を渡す
             fetchAvailability(currentDate);
+        }
+
+        // メニュー・オプションの選択状態をすべてリセットする（ユーワード⇔通常メニューの切替時に使用）
+        function resetMenuSelection() {
+            document.querySelectorAll('.symptoms button.active, .irradiations button.active, .menu-sections button.active')
+                .forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.menu-section.active').forEach(section => section.classList.remove('active'));
+
+            selectedSymptom = [];
+            selectedMenuTime = 0;
+            menuPrice = 0;
+            irradiationsCount = '';
+            optionsPrice = 0;
+            selectedirradiationsTime = 0;
+            totalAmount = 0;
+            selectedFullDate = '';
+
+            const selectedMenusDisplay = document.getElementById('selected-menus-display');
+            selectedMenusDisplay.innerHTML = '';
+            selectedMenusDisplay.style.display = 'none';
+
+            const treatmentText = document.getElementById('treatment-text');
+            treatmentText.innerHTML = '';
+            treatmentText.style.display = 'none';
+
+            // メニュー未選択に戻るのでカレンダーも非表示に戻す
+            document.querySelector('.calendar-container').style.display = 'none';
+
+            updateDisplayInfo();
         }
 
         function showMenu(menu) {
@@ -1859,6 +1937,12 @@ liff.sendMessages([{
 
                 let businessEventTimes = []; // 営業日のイベント時間帯を記録する配列
 
+                // ユーワードの【平日限定】メニュー選択中は、土日祝を予約不可にする
+                const dayKey = `${day.getFullYear()}-${(day.getMonth() + 1).toString().padStart(2, '0')}-${day.getDate().toString().padStart(2, '0')}`;
+                const isWeekendOrHoliday = day.getDay() === 0 || day.getDay() === 6 || holidays.includes(dayKey);
+                const weekdayOnlyBlocked = isWeekendOrHoliday &&
+                    selectedSymptom.some(item => item.name === UWARD_WEEKDAY_ONLY_MENU);
+
                 availability.forEach(slot => {
                     const eventStart = new Date(slot.startTime);
                     const eventEnd = new Date(slot.endTime);
@@ -1892,6 +1976,13 @@ if (slotStart > twoMonthsLater) {
     cell.classList.add('unavailable'); // CSSクラス 'unavailable' を追加（スタイルを変更）
     continue; // このループの処理をスキップして次へ
 }
+
+                    // 【平日限定】メニューの土日祝は✕
+                    if (weekdayOnlyBlocked) {
+                        cell.textContent = '✕';
+                        cell.classList.add('unavailable');
+                        continue;
+                    }
 
                     // 日付を跨ぐ場合は✕
                     if (slotEnd.getDate() !== slotStart.getDate()) {
@@ -1978,11 +2069,7 @@ if (slotStart > twoMonthsLater) {
             }
         }
 
-        function updateCalendarHeader(date) {
-            const headerRow = document.getElementById('calendar-header');
-            const headers = headerRow.querySelectorAll('th:not(:first-child)');
-
-            // サンプルの祝日データ（必要に応じて動的に取得も検討）
+            // 祝日データ（カレンダーの見出し色と、【平日限定】メニューの予約不可判定で共用）
             const holidays = [
                 '2025-02-11', // 建国記念の日
                 '2025-02-23', // 天皇誕生日
@@ -2052,6 +2139,10 @@ if (slotStart > twoMonthsLater) {
                 '2028-11-03', // 文化の日
                 '2028-11-23'  // 勤労感謝の日
             ];
+
+        function updateCalendarHeader(date) {
+            const headerRow = document.getElementById('calendar-header');
+            const headers = headerRow.querySelectorAll('th:not(:first-child)');
 
             const startDate = new Date(date);
             headers.forEach((th, index) => {
